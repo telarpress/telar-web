@@ -8,10 +8,7 @@ environment:
   oauth_provider_base_url: ""
   oauth_telar_base_url: ""
   oauth_provider: "github"
-  external_redirect_domain: "http://www.app.localhost:31112/function/auth"
-
   base_route: "/auth"
-
   write_debug: "true"
 
 # FAAS_ENV=openfaas-fn

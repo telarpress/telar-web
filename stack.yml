@@ -10,6 +10,7 @@ functions:
       cookie_root_domain: .o6s.io
       db_type: mongo
       external_domain: https://red-gold.o6s.io
+      external_redirect_domain: https://red-gold.o6s.io/auth
       gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
@@ -69,6 +70,7 @@ functions:
       db_type: mongo
       exec_timeout: "20"
       external_domain: https://red-gold.o6s.io
+      external_redirect_domain: https://red-gold.o6s.io/auth
       gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
@@ -129,7 +131,7 @@ functions:
       cookie_root_domain: .o6s.io
       db_type: mongo
       external_domain: https://red-gold.o6s.io
-      external_redirect_domain: http://www.app.localhost:31112/function/auth
+      external_redirect_domain: https://red-gold.o6s.io/auth
       gateway: https://red-gold.o6s.io
       github_app_id: "12345"
       header_cookie_name: he
@@ -195,6 +197,7 @@ functions:
       cookie_root_domain: .o6s.io
       db_type: mongo
       external_domain: https://red-gold.o6s.io
+      external_redirect_domain: https://red-gold.o6s.io/auth
       gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
@@ -253,6 +256,7 @@ functions:
       cookie_root_domain: .o6s.io
       db_type: mongo
       external_domain: https://red-gold.o6s.io
+      external_redirect_domain: https://red-gold.o6s.io/auth
       gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
@@ -311,6 +315,7 @@ functions:
       cookie_root_domain: .o6s.io
       db_type: mongo
       external_domain: https://red-gold.o6s.io
+      external_redirect_domain: https://red-gold.o6s.io/auth
       gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
@@ -371,6 +376,7 @@ functions:
       db_type: mongo
       exec_timeout: "20"
       external_domain: https://red-gold.o6s.io
+      external_redirect_domain: https://red-gold.o6s.io/auth
       gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
