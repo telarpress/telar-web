@@ -2,15 +2,15 @@ functions:
   actions:
     lang: golang-middleware
     handler: ./src/controllers/actions
-    image: qolzam/actions:v0.8
+    image: qolzam/actions:v0.4
     fprocess: ""
     environment:
       app_name: Telar Social
       base_route: /actions
-      cookie_root_domain: .app.localhost
+      cookie_root_domain: .o6s.io
       db_type: mongo
-      external_domain: http://www.app.localhost:31112
-      gateway: http://gateway.openfaas:8080
+      external_domain: https://red-gold.o6s.io
+      gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://%s:%s@cluster0-l6ojz.mongodb.net/%s?retryWrites=true&w=majority
@@ -18,14 +18,14 @@ functions:
       mongo_user: telar_user
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: http://www.app.localhost:31112
+      origin: https://red-gold.o6s.io
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
       phone_source_number: "0123456"
       private_key_path: /var/openfaas/secrets/key
       public_key_path: /var/openfaas/secrets/key.pub
-      query_pretty_url: "false"
+      query_pretty_url: "true"
       read_timeout: 10s
       recaptcha_key_path: /var/openfaas/secrets/recaptcha-key
       recaptcha_site_key: 6LfXPboUAAAAAIQmwp8HVll7n7ZUpwNW1JL5RcoW
@@ -34,7 +34,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: http://www.app.localhost:31112
+      web_domain: https://red-gold.o6s.io
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -65,11 +65,11 @@ functions:
     environment:
       app_name: Telar Social
       base_route: /admin
-      cookie_root_domain: .app.localhost
+      cookie_root_domain: .o6s.io
       db_type: mongo
       exec_timeout: "20"
-      external_domain: http://www.app.localhost:31112
-      gateway: http://gateway.openfaas:8080
+      external_domain: https://red-gold.o6s.io
+      gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://%s:%s@cluster0-l6ojz.mongodb.net/%s?retryWrites=true&w=majority
@@ -77,14 +77,14 @@ functions:
       mongo_user: telar_user
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: http://www.app.localhost:31112
+      origin: https://red-gold.o6s.io
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
       phone_source_number: "0123456"
       private_key_path: /var/openfaas/secrets/key
       public_key_path: /var/openfaas/secrets/key.pub
-      query_pretty_url: "false"
+      query_pretty_url: "true"
       read_timeout: 10s
       recaptcha_key_path: /var/openfaas/secrets/recaptcha-key
       recaptcha_site_key: 6LfXPboUAAAAAIQmwp8HVll7n7ZUpwNW1JL5RcoW
@@ -93,7 +93,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: http://www.app.localhost:31112
+      web_domain: https://red-gold.o6s.io
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -119,18 +119,18 @@ functions:
   auth:
     lang: golang-middleware
     handler: ./src/controllers/users/auth
-    image: qolzam/auth:v0.3
+    image: qolzam/auth:v0.17
     fprocess: ""
     environment:
       app_name: Telar Social
       base_route: /auth
       client_id: 7a9cbbf3e0bce602784f
       client_secret: ""
-      cookie_root_domain: .app.localhost
+      cookie_root_domain: .o6s.io
       db_type: mongo
-      external_domain: http://www.app.localhost:31112
+      external_domain: https://red-gold.o6s.io
       external_redirect_domain: http://www.app.localhost:31112/function/auth
-      gateway: http://gateway.openfaas:8080
+      gateway: https://red-gold.o6s.io
       github_app_id: "12345"
       header_cookie_name: he
       mongo_database: test
@@ -143,14 +143,14 @@ functions:
       oauth_telar_base_url: ""
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: http://www.app.localhost:31112
+      origin: https://red-gold.o6s.io
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
       phone_source_number: "0123456"
       private_key_path: /var/openfaas/secrets/key
       public_key_path: /var/openfaas/secrets/key.pub
-      query_pretty_url: "false"
+      query_pretty_url: "true"
       read_timeout: 10s
       recaptcha_key_path: /var/openfaas/secrets/recaptcha-key
       recaptcha_site_key: 6LfXPboUAAAAAIQmwp8HVll7n7ZUpwNW1JL5RcoW
@@ -161,7 +161,7 @@ functions:
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
       verify_type: emv
-      web_domain: http://www.app.localhost:31112
+      web_domain: https://red-gold.o6s.io
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -187,15 +187,15 @@ functions:
   notifications:
     lang: golang-middleware
     handler: ./src/controllers/notifications
-    image: qolzam/notifications:v0.13
+    image: qolzam/notifications:v0.2
     fprocess: ""
     environment:
       app_name: Telar Social
       base_route: /notifications
-      cookie_root_domain: .app.localhost
+      cookie_root_domain: .o6s.io
       db_type: mongo
-      external_domain: http://www.app.localhost:31112
-      gateway: http://gateway.openfaas:8080
+      external_domain: https://red-gold.o6s.io
+      gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://%s:%s@cluster0-l6ojz.mongodb.net/%s?retryWrites=true&w=majority
@@ -203,14 +203,14 @@ functions:
       mongo_user: telar_user
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: http://www.app.localhost:31112
+      origin: https://red-gold.o6s.io
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
       phone_source_number: "0123456"
       private_key_path: /var/openfaas/secrets/key
       public_key_path: /var/openfaas/secrets/key.pub
-      query_pretty_url: "false"
+      query_pretty_url: "true"
       read_timeout: 10s
       recaptcha_key_path: /var/openfaas/secrets/recaptcha-key
       recaptcha_site_key: 6LfXPboUAAAAAIQmwp8HVll7n7ZUpwNW1JL5RcoW
@@ -219,7 +219,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: http://www.app.localhost:31112
+      web_domain: https://red-gold.o6s.io
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -250,10 +250,10 @@ functions:
     environment:
       app_name: Telar Social
       base_route: /profile
-      cookie_root_domain: .app.localhost
+      cookie_root_domain: .o6s.io
       db_type: mongo
-      external_domain: http://www.app.localhost:31112
-      gateway: http://gateway.openfaas:8080
+      external_domain: https://red-gold.o6s.io
+      gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://%s:%s@cluster0-l6ojz.mongodb.net/%s?retryWrites=true&w=majority
@@ -261,14 +261,14 @@ functions:
       mongo_user: telar_user
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: http://www.app.localhost:31112
+      origin: https://red-gold.o6s.io
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
       phone_source_number: "0123456"
       private_key_path: /var/openfaas/secrets/key
       public_key_path: /var/openfaas/secrets/key.pub
-      query_pretty_url: "false"
+      query_pretty_url: "true"
       read_timeout: 10s
       recaptcha_key_path: /var/openfaas/secrets/recaptcha-key
       recaptcha_site_key: 6LfXPboUAAAAAIQmwp8HVll7n7ZUpwNW1JL5RcoW
@@ -277,7 +277,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: http://www.app.localhost:31112
+      web_domain: https://red-gold.o6s.io
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -308,10 +308,10 @@ functions:
     environment:
       app_name: Telar Social
       base_route: /setting
-      cookie_root_domain: .app.localhost
+      cookie_root_domain: .o6s.io
       db_type: mongo
-      external_domain: http://www.app.localhost:31112
-      gateway: http://gateway.openfaas:8080
+      external_domain: https://red-gold.o6s.io
+      gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://%s:%s@cluster0-l6ojz.mongodb.net/%s?retryWrites=true&w=majority
@@ -319,14 +319,14 @@ functions:
       mongo_user: telar_user
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: http://www.app.localhost:31112
+      origin: https://red-gold.o6s.io
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
       phone_source_number: "0123456"
       private_key_path: /var/openfaas/secrets/key
       public_key_path: /var/openfaas/secrets/key.pub
-      query_pretty_url: "false"
+      query_pretty_url: "true"
       read_timeout: 10s
       recaptcha_key_path: /var/openfaas/secrets/recaptcha-key
       recaptcha_site_key: 6LfXPboUAAAAAIQmwp8HVll7n7ZUpwNW1JL5RcoW
@@ -335,7 +335,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: http://www.app.localhost:31112
+      web_domain: https://red-gold.o6s.io
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -367,11 +367,11 @@ functions:
       app_name: Telar Social
       base_route: /storage
       bucket_name: resume-web-app.appspot.com
-      cookie_root_domain: .app.localhost
+      cookie_root_domain: .o6s.io
       db_type: mongo
       exec_timeout: "20"
-      external_domain: http://www.app.localhost:31112
-      gateway: http://gateway.openfaas:8080
+      external_domain: https://red-gold.o6s.io
+      gateway: https://red-gold.o6s.io
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://%s:%s@cluster0-l6ojz.mongodb.net/%s?retryWrites=true&w=majority
@@ -379,14 +379,14 @@ functions:
       mongo_user: telar_user
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: http://www.app.localhost:31112
+      origin: https://red-gold.o6s.io
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
       phone_source_number: "0123456"
       private_key_path: /var/openfaas/secrets/key
       public_key_path: /var/openfaas/secrets/key.pub
-      query_pretty_url: "false"
+      query_pretty_url: "true"
       read_timeout: 10s
       recaptcha_key_path: /var/openfaas/secrets/recaptcha-key
       recaptcha_site_key: 6LfXPboUAAAAAIQmwp8HVll7n7ZUpwNW1JL5RcoW
@@ -396,7 +396,7 @@ functions:
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
       storage_secret_path: /var/openfaas/secrets/serviceAccountKey.json
-      web_domain: http://www.app.localhost:31112
+      web_domain: https://red-gold.o6s.io
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
