@@ -1,0 +1,127 @@
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  admin:
+    lang: golang-middleware
+    handler: ./src/controllers/admin
+    image: qolzam/admin:v0.21
+    labels:
+      openfaas-cloud: "1"
+      role: ts-system
+      com.openfaas.scale.zero: false
+    environment_file:
+      - config/app_config.yml
+      - config/admin_config.yml
+      - config/server_web_config.yml
+      - config/gateway_config.yml
+    annotations:
+      linkerd.io/inject: disabled
+    secrets:
+      - secrets
+  auth:
+    lang: golang-middleware
+    handler: ./src/controllers/users/auth
+    image: qolzam/auth:v0.17
+    labels:
+      openfaas-cloud: "1"
+      role: ts-system
+      role: auth-system
+      com.openfaas.scale.zero: false
+    environment_file:
+      - config/app_config.yml
+      - config/auth_config.yml
+      - config/server_web_config.yml
+      - config/gateway_config.yml
+    annotations:
+      linkerd.io/inject: disabled
+    secrets:
+      - secrets
+  profile:
+    lang: golang-middleware
+    handler: ./src/controllers/users/profile
+    image: qolzam/profile:v0.2
+    labels:
+      openfaas-cloud: "1"
+      role: ts-system
+      com.openfaas.scale.zero: false
+    environment_file:
+      - config/app_config.yml
+      - config/profile_config.yml
+      - config/server_web_config.yml
+      - config/gateway_config.yml
+    annotations:
+      linkerd.io/inject: disabled
+    secrets:
+      - secrets
+  setting:
+    lang: golang-middleware
+    handler: ./src/controllers/users/setting
+    image: qolzam/setting:v0.2
+    labels:
+      openfaas-cloud: "1"
+      role: ts-system
+      com.openfaas.scale.zero: false
+    environment_file:
+      - config/app_config.yml
+      - config/setting_config.yml
+      - config/server_web_config.yml
+      - config/gateway_config.yml
+    annotations:
+      linkerd.io/inject: disabled
+    secrets:
+      - secrets
+  storage:
+    lang: golang-middleware
+    handler: ./src/controllers/storage
+    image: qolzam/storage:v0.2
+    labels:
+      openfaas-cloud: "1"
+      role: ts-system
+      com.openfaas.scale.zero: false
+    environment_file:
+      - config/app_config.yml
+      - config/storage_config.yml
+      - config/server_web_config.yml
+      - config/gateway_config.yml
+    annotations:
+      linkerd.io/inject: disabled
+    secrets:
+      - secrets
+
+  actions:
+    lang: golang-middleware
+    handler: ./src/controllers/actions
+    image: qolzam/actions:v0.4
+    labels:
+      openfaas-cloud: "1"
+      role: ts-system
+      com.openfaas.scale.zero: false
+    environment_file:
+      - config/app_config.yml
+      - config/action_config.yml
+      - config/server_web_config.yml
+      - config/gateway_config.yml
+    annotations:
+      linkerd.io/inject: disabled
+    secrets:
+      - secrets
+
+  notifications:
+    lang: golang-middleware
+    handler: ./src/controllers/notifications
+    image: qolzam/notifications:v0.2
+    labels:
+      openfaas-cloud: "1"
+      role: ts-system
+      com.openfaas.scale.zero: false
+    environment_file:
+      - config/app_config.yml
+      - config/notification_config.yml
+      - config/server_web_config.yml
+      - config/gateway_config.yml
+    annotations:
+      linkerd.io/inject: disabled
+    secrets:
+      - secrets
