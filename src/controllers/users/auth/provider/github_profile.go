@@ -45,7 +45,6 @@ func (gh *GitHub) GetProfile(accessToken string) (*Profile, error) {
 		defer res.Body.Close()
 
 		bytesOut, _ := ioutil.ReadAll(res.Body)
-		fmt.Printf("\nGet Profile Body: %v\n", bytesOut)
 		unmarshalErr := json.Unmarshal(bytesOut, &githubProfile)
 		if unmarshalErr != nil {
 			return profile, unmarshalErr
@@ -60,7 +59,56 @@ func (gh *GitHub) GetProfile(accessToken string) (*Profile, error) {
 	profile.Login = githubProfile.Login
 	profile.ID = string(githubProfile.ID)
 
+	if profile.Email == "" {
+		email, emailErr := gh.GetGithubEmail(accessToken)
+		if emailErr != nil {
+			return profile, emailErr
+		}
+		profile.Email = email
+	}
+
 	return profile, err
+}
+
+// GetGithubEmail get user email from github
+func (gh *GitHub) GetGithubEmail(accessToken string) (string, error) {
+	var err error
+	var githubEmails []GitHubEmail
+
+	req, reqErr := http.NewRequest(http.MethodGet, "https://api.github.com/user/emails", nil)
+	req.Header.Add("Authorization", "token "+accessToken)
+	if reqErr != nil {
+		return "", reqErr
+	}
+
+	res, err := gh.Client.Do(req)
+	if err != nil {
+		return "", reqErr
+	}
+
+	if res.StatusCode != http.StatusOK {
+		return "", fmt.Errorf("bad status code: %d", res.StatusCode)
+	}
+
+	if res.Body != nil {
+		defer res.Body.Close()
+
+		bytesOut, _ := ioutil.ReadAll(res.Body)
+		unmarshalErr := json.Unmarshal(bytesOut, &githubEmails)
+		if unmarshalErr != nil {
+			return "", unmarshalErr
+		}
+	}
+
+	if githubEmails != nil {
+		for _, email := range githubEmails {
+			if email.Primary {
+				return email.Email, nil
+			}
+		}
+	}
+
+	return "", fmt.Errorf("No primary email found in Github.")
 }
 
 // GitHubProfile represents a GitHub profile
@@ -73,4 +121,11 @@ type GitHubProfile struct {
 	TwoFactor bool      `json:"two_factor_authentication"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// GitHubEmail represents an email registered in Github
+type GitHubEmail struct {
+	Verified bool   `json:"verified"`
+	Primary  bool   `json:"primary"`
+	Email    string `json:"email"`
 }

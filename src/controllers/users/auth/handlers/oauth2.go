@@ -26,6 +26,14 @@ const profileFetchTimeout = time.Second * 5
 // checkSignup check for user signup in the case user does not exist in user auth
 func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 
+	if model.profile.Name == "" {
+		fmt.Println("[ERROR]: OAuth provide - name can not be empty")
+		return fmt.Errorf("OAuth provide - name can not be empty")
+	}
+	if model.profile.Email == "" {
+		fmt.Println("[ERROR]: OAuth provide - email can not be empty")
+		return fmt.Errorf("OAuth provide - email can not be empty")
+	}
 	// Create service
 	userAuthService, serviceErr := service.NewUserAuthService(db)
 	if serviceErr != nil {
