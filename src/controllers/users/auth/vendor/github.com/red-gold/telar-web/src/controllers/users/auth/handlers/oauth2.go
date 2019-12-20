@@ -37,20 +37,23 @@ func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 		return serviceErr
 	}
 
+	fmt.Printf("[INFO]: Oauth check signup for user %s", model.profile.Email)
+
 	// Check user exist
 	userAuth, findError := userAuthService.FindByUsername(model.profile.Email)
 	if findError != nil {
-		errorMessage := fmt.Sprintf("Error while finding user by user name : %s",
+		errorMessage := fmt.Sprintf("[ERROR]: Error while finding user by user name : %s",
 			findError.Error())
 		fmt.Println(errorMessage)
 
 	}
+	fmt.Printf("[INFO]: Oauth check signup - user auth object %v", userAuth)
 
 	if userAuth.ObjectId == uuid.Nil {
 		// Create signup token
 		newUserId, uuidErr := uuid.NewV4()
 		if uuidErr != nil {
-			fmt.Printf("Error in uuid.NewV4 error: %s", uuidErr.Error())
+			fmt.Printf("[Error]: uuid.NewV4 error: %s", uuidErr.Error())
 			return uuidErr
 		}
 		createdDate := utils.UTCNowUnix()
@@ -91,9 +94,6 @@ func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 			return fmt.Errorf("Cannot initialize user setup! error: %s", setupErr.Error())
 		}
 		model.profile.ID = userAuth.ObjectId.String()
-		model.profile.Email = newUserProfile.Email
-		model.profile.Name = newUserProfile.FullName
-		model.profile.Avatar = newUserProfile.Avatar
 		model.claim = UserClaim{
 			DisplayName: newUserProfile.FullName,
 			Email:       newUserProfile.Email,
@@ -101,6 +101,8 @@ func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 			Role:        userAuth.Role,
 		}
 	} else {
+
+		fmt.Printf("\n[INFO]: Check signup user exist, preparing user profile.\n")
 		userProfileService, serviceErr := service.NewUserProfileService(db)
 		if serviceErr != nil {
 			return serviceErr
@@ -297,7 +299,7 @@ func OAuth2Handler(db interface{}) func(w http.ResponseWriter, r *http.Request, 
 				StatusCode: http.StatusInternalServerError,
 			}, nil
 		}
-		session, err := createOAuthSession(model)
+		session, err := createOAuthSession(&model)
 		if err != nil {
 			log.Printf("Error creating session: %s", err.Error())
 			return handler.Response{

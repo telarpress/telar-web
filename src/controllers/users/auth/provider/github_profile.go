@@ -51,7 +51,7 @@ func (gh *GitHub) GetProfile(accessToken string) (*Profile, error) {
 			return profile, unmarshalErr
 		}
 	}
-
+	fmt.Printf("\n[INFO]: github user unmarshal %v \n", githubProfile)
 	profile.TwoFactor = githubProfile.TwoFactor
 	profile.Name = githubProfile.Name
 	profile.Email = githubProfile.Email

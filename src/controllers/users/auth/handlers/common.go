@@ -123,7 +123,7 @@ func combineURL(a, b string) string {
 	return a + b
 }
 
-func createOAuthSession(model TokenModel) (string, error) {
+func createOAuthSession(model *TokenModel) (string, error) {
 	fmt.Printf("\nToken Model: %v\n", model)
 
 	model.organizationList = ""
@@ -172,7 +172,7 @@ func writeSessionOnCookie(w http.ResponseWriter, session string, config *cf.Conf
 }
 
 // createToken
-func createToken(model TokenModel) (string, error) {
+func createToken(model *TokenModel) (string, error) {
 	var err error
 	var session string
 	authConfig := &cf.AuthConfig
