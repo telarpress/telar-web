@@ -107,6 +107,7 @@ func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 			Email:       newUserProfile.Email,
 			UserId:      newUserAuth.ObjectId.String(),
 			Role:        newUserAuth.Role,
+			Avatar:      newUserProfile.Avatar,
 		}
 	} else {
 
@@ -130,6 +131,7 @@ func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 			Email:       foundUserProfile.Email,
 			UserId:      userAuth.ObjectId.String(),
 			Role:        userAuth.Role,
+			Avatar:      foundUserProfile.Avatar,
 		}
 
 	}
