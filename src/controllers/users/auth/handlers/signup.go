@@ -333,7 +333,7 @@ func AdminSignupHandle(db interface{}) func(http.ResponseWriter, *http.Request, 
 						fmt.Sprintf("Cannot initialize user setup! error: %s", setupErr.Error()))},
 				userProfileErr
 		}
-		session, sessionErr := createToken(TokenModel{
+		tokenModel := &TokenModel{
 			token:            ProviderAccessToken{},
 			oauthProvider:    nil,
 			providerName:     "telar",
@@ -345,7 +345,8 @@ func AdminSignupHandle(db interface{}) func(http.ResponseWriter, *http.Request, 
 				UserId:      userUUID.String(),
 				Role:        "admin",
 			},
-		})
+		}
+		session, sessionErr := createToken(tokenModel)
 		if sessionErr != nil {
 			errorMessage := fmt.Sprintf("Error creating session error: %s",
 				sessionErr.Error())

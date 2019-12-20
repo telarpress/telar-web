@@ -209,22 +209,21 @@ func LoginTelarHandler(db interface{}) func(http.ResponseWriter, *http.Request, 
 			loginData.message = "User Profile error!"
 			return loginPageResponse(loginData)
 		}
-
-		session, err := createToken(
-			TokenModel{
-				token:            ProviderAccessToken{},
-				oauthProvider:    nil,
-				providerName:     "telar",
-				profile:          &provider.Profile{Name: foundUser.Username, ID: foundUser.ObjectId.String(), Login: foundUser.Username},
-				organizationList: "Red Gold",
-				claim: UserClaim{
-					DisplayName: foundUserProfile.FullName,
-					Email:       foundUserProfile.Email,
-					Avatar:      foundUserProfile.Avatar,
-					UserId:      foundUser.ObjectId.String(),
-					Role:        foundUser.Role,
-				},
-			})
+		tokenModel := &TokenModel{
+			token:            ProviderAccessToken{},
+			oauthProvider:    nil,
+			providerName:     "telar",
+			profile:          &provider.Profile{Name: foundUser.Username, ID: foundUser.ObjectId.String(), Login: foundUser.Username},
+			organizationList: "Red Gold",
+			claim: UserClaim{
+				DisplayName: foundUserProfile.FullName,
+				Email:       foundUserProfile.Email,
+				Avatar:      foundUserProfile.Avatar,
+				UserId:      foundUser.ObjectId.String(),
+				Role:        foundUser.Role,
+			},
+		}
+		session, err := createToken(tokenModel)
 		if err != nil {
 			log.Printf("{error: 'Error creating session: %s'}", err.Error())
 			return handler.Response{
@@ -310,22 +309,21 @@ func LoginAdminHandler(db interface{}) func(http.ResponseWriter, *http.Request, 
 			return handler.Response{StatusCode: http.StatusBadRequest, Body: utils.MarshalError("findUserProfileError", errorMessage)},
 				nil
 		}
-
-		session, err := createToken(
-			TokenModel{
-				token:            ProviderAccessToken{},
-				oauthProvider:    nil,
-				providerName:     "telar",
-				profile:          &provider.Profile{Name: foundUser.Username, ID: foundUser.ObjectId.String(), Login: foundUser.Username},
-				organizationList: "Red Gold",
-				claim: UserClaim{
-					DisplayName: foundUserProfile.FullName,
-					Email:       foundUserProfile.Email,
-					Avatar:      foundUserProfile.Avatar,
-					UserId:      foundUser.ObjectId.String(),
-					Role:        foundUser.Role,
-				},
-			})
+		tokenModel := &TokenModel{
+			token:            ProviderAccessToken{},
+			oauthProvider:    nil,
+			providerName:     "telar",
+			profile:          &provider.Profile{Name: foundUser.Username, ID: foundUser.ObjectId.String(), Login: foundUser.Username},
+			organizationList: "Red Gold",
+			claim: UserClaim{
+				DisplayName: foundUserProfile.FullName,
+				Email:       foundUserProfile.Email,
+				Avatar:      foundUserProfile.Avatar,
+				UserId:      foundUser.ObjectId.String(),
+				Role:        foundUser.Role,
+			},
+		}
+		session, err := createToken(tokenModel)
 		if err != nil {
 			log.Printf("{error: 'Error creating session: %s'}", err.Error())
 			return handler.Response{

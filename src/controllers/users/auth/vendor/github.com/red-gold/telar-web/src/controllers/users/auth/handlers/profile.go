@@ -60,19 +60,19 @@ func UpdateProfileHandle(db interface{}) func(http.ResponseWriter, *http.Request
 		if err != nil {
 			return handler.Response{StatusCode: http.StatusInternalServerError}, err
 		}
-		session, err := createToken(
-			TokenModel{
-				token:            ProviderAccessToken{},
-				oauthProvider:    nil,
-				providerName:     "telar",
-				profile:          &provider.Profile{Name: model.FullName, ID: req.UserID.String(), Login: req.Username},
-				organizationList: "Red Gold",
-				claim: UserClaim{
-					DisplayName: model.FullName,
-					Email:       req.Username,
-					Avatar:      model.Avatar,
-					UserId:      req.UserID.String()},
-			})
+		tokenModel := &TokenModel{
+			token:            ProviderAccessToken{},
+			oauthProvider:    nil,
+			providerName:     "telar",
+			profile:          &provider.Profile{Name: model.FullName, ID: req.UserID.String(), Login: req.Username},
+			organizationList: "Red Gold",
+			claim: UserClaim{
+				DisplayName: model.FullName,
+				Email:       req.Username,
+				Avatar:      model.Avatar,
+				UserId:      req.UserID.String()},
+		}
+		session, err := createToken(tokenModel)
 		if err != nil {
 			fmt.Printf("{error: 'Error creating session: %s'}", err.Error())
 			return handler.Response{

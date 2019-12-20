@@ -205,7 +205,7 @@ func VerifySignupHandle(db interface{}) func(http.ResponseWriter, *http.Request,
 				userProfileErr
 		}
 
-		session, sessionErr := createToken(TokenModel{
+		tokenModel := &TokenModel{
 			token:            ProviderAccessToken{},
 			oauthProvider:    nil,
 			providerName:     "telar",
@@ -217,7 +217,8 @@ func VerifySignupHandle(db interface{}) func(http.ResponseWriter, *http.Request,
 				UserId:      userId,
 				Role:        "user",
 			},
-		})
+		}
+		session, sessionErr := createToken(tokenModel)
 		if sessionErr != nil {
 			errorMessage := fmt.Sprintf("Error creating session error: %s",
 				sessionErr.Error())
