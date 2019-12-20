@@ -26,6 +26,14 @@ const profileFetchTimeout = time.Second * 5
 // checkSignup check for user signup in the case user does not exist in user auth
 func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 
+	if model.profile.Name == "" {
+		fmt.Println("[ERROR]: OAuth provide - name can not be empty")
+		return fmt.Errorf("OAuth provide - name can not be empty")
+	}
+	if model.profile.Email == "" {
+		fmt.Println("[ERROR]: OAuth provide - email can not be empty")
+		return fmt.Errorf("OAuth provide - email can not be empty")
+	}
 	// Create service
 	userAuthService, serviceErr := service.NewUserAuthService(db)
 	if serviceErr != nil {
@@ -93,12 +101,12 @@ func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 		if setupErr != nil {
 			return fmt.Errorf("Cannot initialize user setup! error: %s", setupErr.Error())
 		}
-		model.profile.ID = userAuth.ObjectId.String()
+		model.profile.ID = newUserAuth.ObjectId.String()
 		model.claim = UserClaim{
 			DisplayName: newUserProfile.FullName,
 			Email:       newUserProfile.Email,
-			UserId:      userAuth.ObjectId.String(),
-			Role:        userAuth.Role,
+			UserId:      newUserAuth.ObjectId.String(),
+			Role:        newUserAuth.Role,
 		}
 	} else {
 
