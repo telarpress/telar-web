@@ -101,12 +101,12 @@ func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 		if setupErr != nil {
 			return fmt.Errorf("Cannot initialize user setup! error: %s", setupErr.Error())
 		}
-		model.profile.ID = userAuth.ObjectId.String()
+		model.profile.ID = newUserAuth.ObjectId.String()
 		model.claim = UserClaim{
 			DisplayName: newUserProfile.FullName,
 			Email:       newUserProfile.Email,
-			UserId:      userAuth.ObjectId.String(),
-			Role:        userAuth.Role,
+			UserId:      newUserAuth.ObjectId.String(),
+			Role:        newUserAuth.Role,
 		}
 	} else {
 
