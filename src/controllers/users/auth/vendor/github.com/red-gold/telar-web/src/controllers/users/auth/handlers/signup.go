@@ -315,6 +315,8 @@ func AdminSignupHandle(db interface{}) func(http.ResponseWriter, *http.Request, 
 			CreatedDate: createdDate,
 			LastUpdated: createdDate,
 			Email:       email,
+			Avatar:      "https://api.adorable.io/avatars/" + userUUID.String(),
+			Banner:      fmt.Sprintf("https://picsum.photos/id/%d/900/300/?blur", generateRandomNumber(1, 1000)),
 			Permission:  constants.Public,
 		}
 		userProfileErr := userProfileService.SaveUserProfile(newUserProfile)

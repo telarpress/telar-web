@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 	"net/url"
 	"strings"
@@ -367,4 +368,9 @@ func initUserSetup(userId uuid.UUID, email string, avatar string, displayName st
 	}
 
 	return nil
+}
+
+func generateRandomNumber(min int, max int) int {
+	rand.Seed(time.Now().UnixNano())
+	return (rand.Intn(max-min+1) + min)
 }

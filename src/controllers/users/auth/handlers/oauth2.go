@@ -90,6 +90,7 @@ func checkSignup(accessToken string, model *TokenModel, db interface{}) error {
 			LastUpdated: createdDate,
 			Email:       model.profile.Email,
 			Avatar:      model.profile.Avatar,
+			Banner:      fmt.Sprintf("https://picsum.photos/id/%d/900/300/?blur", generateRandomNumber(1, 1000)),
 			Permission:  constants.Public,
 		}
 		userProfileErr := userProfileService.SaveUserProfile(newUserProfile)
