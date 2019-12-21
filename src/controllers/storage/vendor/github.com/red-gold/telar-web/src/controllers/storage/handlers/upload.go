@@ -85,13 +85,6 @@ func UploadeHandle(db interface{}) func(http.ResponseWriter, *http.Request, serv
 			log.Fatalln(err)
 		}
 
-		// [START upload_file]
-		// f, err := os.Open("notes.txt")
-		// if err != nil {
-		// 	fmt.Println(err.Error())
-		// }
-		// defer f.Close()
-
 		wc := bucket.Object(objectName).NewWriter(ctx)
 		if _, err = io.Copy(wc, file); err != nil {
 			fmt.Println(err.Error())

@@ -66,7 +66,7 @@ func ResetPasswordPageHandler(db interface{}) func(http.ResponseWriter, *http.Re
 			AppName:       *appConfig.AppName,
 			ActionForm:    fmt.Sprintf("%s/password/reset/%s", prettyURL, verifyId),
 			ResetPassLink: "",
-			LoginLink:     "",
+			LoginLink:     prettyURL + "/login",
 		})
 		if parseErr != nil {
 			fmt.Printf("Can not parse the html page! error: %s ", parseErr)
@@ -214,7 +214,7 @@ func ForgetPasswordFormHandler(db interface{}) func(http.ResponseWriter, *http.R
 		}{
 			Title:     "Reset Password - Telar Social",
 			OrgAvatar: *appConfig.OrgAvatar,
-			Message:   fmt.Sprintf("Reset password link has been sent to %s.", userEmail),
+			Message:   fmt.Sprintf("Reset password link has been sent to %s. It may takes up to 30 minutes to receive the email.", userEmail),
 		})
 		if parseErr != nil {
 			fmt.Printf("Can not parse the html page! error: %s ", parseErr)

@@ -3,7 +3,6 @@ package handlers
 import (
 	"fmt"
 	"net/http"
-	"strconv"
 	"time"
 
 	"github.com/go-redis/redis"
@@ -77,52 +76,11 @@ func GetFileHandle(db interface{}) func(http.ResponseWriter, *http.Request, serv
 		}
 
 		objectName := fmt.Sprintf("%s/%s/%s", userUUID, dirName, fileName)
-		objectExpireKey := fmt.Sprintf("expire:%s", objectName)
 
-		objectURLKey := fmt.Sprintf("url:%s", objectName)
-		expireTime := time.Now().Add(7100 * time.Second)
-		expireUnix := utils.TimeUnix(expireTime)
-		expireDate, expireKeyErr := redisClient.Get(objectExpireKey).Result()
-		if expireKeyErr != nil {
-			errorMessage := fmt.Sprintf("Get expire by key Error %s", expireKeyErr.Error())
-			fmt.Println(errorMessage)
-			// return handler.Response{StatusCode: http.StatusInternalServerError, Body: utils.MarshalError("expireKeyError", errorMessage)}, nil
-		}
-
-		isExpired := true
-		downloadURL := ""
-		if expireDate != "" {
-			if parsedUnix, err := strconv.ParseInt(expireDate, 10, 64); err == nil {
-				fmt.Println(parsedUnix)
-				isExpired = utils.IsTimeExpired(parsedUnix, 7100)
-			} else {
-				errorMessage := fmt.Sprintf("Expire time is not integer %s : %s", expireDate, err.Error())
-				return handler.Response{StatusCode: http.StatusInternalServerError, Body: utils.MarshalError("parseExpireUnixError", errorMessage)}, nil
-			}
-
-		}
-
-		if !isExpired {
-			var urlKeyErr error
-			downloadURL, urlKeyErr = redisClient.Get(objectURLKey).Result()
-			if urlKeyErr != nil {
-				errorMessage := fmt.Sprintf("Get URL by key Error %s", urlKeyErr.Error())
-				fmt.Println(errorMessage)
-				// return handler.Response{StatusCode: http.StatusInternalServerError, Body: utils.MarshalError("urlKeyError", errorMessage)}, nil
-			}
-		} else {
-			// Generate download URL
-			var urlErr error
-			downloadURL, urlErr = generateV4GetObjectSignedURL(storageConfig.BucketName, objectName, storageConfig.StorageSecretPath)
-			if urlErr != nil {
-				fmt.Println(urlErr.Error())
-			}
-
-			redisErr := redisClient.MSet(objectURLKey, downloadURL, objectExpireKey, expireUnix).Err()
-			if redisErr != nil {
-				errorMessage := fmt.Sprintf("Redis Error %s", redisErr.Error())
-				return handler.Response{StatusCode: http.StatusInternalServerError, Body: utils.MarshalError("redisError", errorMessage)}, nil
-			}
+		// Generate download URL
+		downloadURL, urlErr := generateV4GetObjectSignedURL(storageConfig.BucketName, objectName, storageConfig.StorageSecretPath)
+		if urlErr != nil {
+			fmt.Println(urlErr.Error())
 		}
 
 		code := 302 // Permanent redirect, request with GET method
@@ -131,7 +89,11 @@ func GetFileHandle(db interface{}) func(http.ResponseWriter, *http.Request, serv
 			// As of Go 1.3, Go does not support status code 308.
 			code = 307
 		}
-
+		cacheSince := time.Now().Format(http.TimeFormat)
+		cacheUntil := time.Now().Add(time.Second * time.Duration(cacheTimeout)).Format(http.TimeFormat)
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age:%d, public", cacheTimeout))
+		w.Header().Set("Last-Modified", cacheSince)
+		w.Header().Set("Expires", cacheUntil)
 		http.Redirect(w, r, downloadURL, code)
 
 		return handler.Response{

@@ -9,6 +9,8 @@ import (
 	"golang.org/x/oauth2/google"
 )
 
+const cacheTimeout = 7200
+
 func generateV4GetObjectSignedURL(bucketName string, objectName string, serviceAccount string) (string, error) {
 	// [START storage_generate_signed_url_v4]
 	jsonKey, err := ioutil.ReadFile(serviceAccount)
@@ -26,7 +28,7 @@ func generateV4GetObjectSignedURL(bucketName string, objectName string, serviceA
 		Method:         "GET",
 		GoogleAccessID: conf.Email,
 		PrivateKey:     conf.PrivateKey,
-		Expires:        time.Now().Add(120 * time.Hour), // 5 days , 7200 seconds
+		Expires:        time.Now().Add(cacheTimeout * time.Second),
 	}
 
 	u, err := storage.SignedURL(bucketName, objectName, opts)
@@ -36,8 +38,6 @@ func generateV4GetObjectSignedURL(bucketName string, objectName string, serviceA
 
 	fmt.Println("Generated GET signed URL:")
 	fmt.Printf("%q\n", u)
-	fmt.Println("You can use this URL with any user agent, for example:")
-	fmt.Printf("curl %q\n", u)
 	// [END storage_generate_signed_url_v4]
 	return u, nil
 }

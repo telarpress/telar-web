@@ -235,12 +235,16 @@ func LoginTelarHandler(db interface{}) func(http.ResponseWriter, *http.Request, 
 		// Write session on cookie
 		writeSessionOnCookie(w, session, authConfig)
 		fmt.Printf("\nSession is created: %s \n", session)
-		prettyURL := utils.GetPrettyURLf("/web")
-		http.Redirect(w, r, prettyURL, http.StatusTemporaryRedirect)
+		webURL := utils.GetPrettyURLf("/web")
 
 		return handler.Response{
+			Body:       []byte(`<html><head></head>Redirecting.. <a href="redirect">to original resource</a>. <script>window.location.replace("` + webURL + `");</script></html>`),
 			StatusCode: http.StatusOK,
+			Header: map[string][]string{
+				"Content-Type": []string{" text/html; charset=utf-8"},
+			},
 		}, nil
+
 	}
 }
 
