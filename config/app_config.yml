@@ -1,8 +1,7 @@
 environment:
     write_timeout: 10s
     read_timeout: 10s
-    mongo_host: "mongodb+srv://%s:%s@cluster0-l6ojz.mongodb.net/%s?retryWrites=true&w=majority"
-    mongo_user: telar_user
+    mongo_host: "mongodb+srv://telar_user:%s@cluster0-l6ojz.mongodb.net/test?retryWrites=true&w=majority"
     mongo_pwd_path: "/var/openfaas/secrets/mongo-pwd"
     mongo_database: test
     redis_address: "redis-19712.c12.us-east-1-4.ec2.cloud.redislabs.com:19712"

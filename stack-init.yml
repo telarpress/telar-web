@@ -6,7 +6,7 @@ functions:
   admin:
     lang: golang-middleware
     handler: ./src/controllers/admin
-    image: qolzam/admin:v0.21
+    image: qolzam/admin:v0.1
     labels:
       openfaas-cloud: "1"
       role: ts-system
@@ -23,7 +23,7 @@ functions:
   auth:
     lang: golang-middleware
     handler: ./src/controllers/users/auth
-    image: qolzam/auth:v0.17
+    image: qolzam/auth:v0.1
     labels:
       openfaas-cloud: "1"
       role: ts-system
@@ -41,7 +41,7 @@ functions:
   profile:
     lang: golang-middleware
     handler: ./src/controllers/users/profile
-    image: qolzam/profile:v0.2
+    image: qolzam/profile:v0.1
     labels:
       openfaas-cloud: "1"
       role: ts-system
@@ -58,7 +58,7 @@ functions:
   setting:
     lang: golang-middleware
     handler: ./src/controllers/users/setting
-    image: qolzam/setting:v0.2
+    image: qolzam/setting:v0.1
     labels:
       openfaas-cloud: "1"
       role: ts-system
@@ -75,7 +75,7 @@ functions:
   storage:
     lang: golang-middleware
     handler: ./src/controllers/storage
-    image: qolzam/storage:v0.2
+    image: qolzam/storage:v0.1
     labels:
       openfaas-cloud: "1"
       role: ts-system
@@ -93,7 +93,7 @@ functions:
   actions:
     lang: golang-middleware
     handler: ./src/controllers/actions
-    image: qolzam/actions:v0.4
+    image: qolzam/actions:v0.1
     labels:
       openfaas-cloud: "1"
       role: ts-system
@@ -111,7 +111,7 @@ functions:
   notifications:
     lang: golang-middleware
     handler: ./src/controllers/notifications
-    image: qolzam/notifications:v0.2
+    image: qolzam/notifications:v0.1
     labels:
       openfaas-cloud: "1"
       role: ts-system
