@@ -2,7 +2,7 @@ functions:
   actions:
     lang: golang-middleware
     handler: ./src/controllers/actions
-    image: telarpress/actions:v0.2
+    image: telar/actions:v0.2
     fprocess: ""
     environment:
       app_name: Telar Social
@@ -60,7 +60,7 @@ functions:
   # admin:
   #   lang: golang-middleware
   #   handler: ./src/controllers/admin
-  #   image: telarpress/admin:v0.1
+  #   image: telar/admin:v0.1
   #   fprocess: ""
   #   environment:
   #     app_name: Telar Social
@@ -119,7 +119,7 @@ functions:
   # auth:
   #   lang: golang-middleware
   #   handler: ./src/controllers/users/auth
-  #   image: telarpress/auth:v0.1
+  #   image: telar/auth:v0.1
   #   fprocess: ""
   #   environment:
   #     app_name: Telar Social
@@ -186,7 +186,7 @@ functions:
   # notifications:
   #   lang: golang-middleware
   #   handler: ./src/controllers/notifications
-  #   image: telarpress/notifications:v0.1
+  #   image: telar/notifications:v0.1
   #   fprocess: ""
   #   environment:
   #     app_name: Telar Social
@@ -244,7 +244,7 @@ functions:
   # profile:
   #   lang: golang-middleware
   #   handler: ./src/controllers/users/profile
-  #   image: telarpress/profile:v0.1
+  #   image: telar/profile:v0.1
   #   fprocess: ""
   #   environment:
   #     app_name: Telar Social
@@ -302,7 +302,7 @@ functions:
   # setting:
   #   lang: golang-middleware
   #   handler: ./src/controllers/users/setting
-  #   image: telarpress/setting:v0.1
+  #   image: telar/setting:v0.1
   #   fprocess: ""
   #   environment:
   #     app_name: Telar Social
@@ -360,7 +360,7 @@ functions:
   # storage:
   #   lang: golang-middleware
   #   handler: ./src/controllers/storage
-  #   image: telarpress/storage:v0.1
+  #   image: telar/storage:v0.1
   #   fprocess: ""
   #   environment:
   #     app_name: Telar Social
