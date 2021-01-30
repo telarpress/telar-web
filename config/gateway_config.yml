@@ -1,8 +1,8 @@
 environment:
-  cookie_root_domain: .o6s.io
-  external_domain: https://telarpress.o6s.io
-  external_redirect_domain: https://telarpress.o6s.io/auth
-  gateway: https://telarpress.o6s.io
-  origin: https://telarpress.o6s.io
-  web_domain: https://telarpress.o6s.io
+  cookie_root_domain: .telar.dev
+  external_domain: https://social.telar.dev
+  external_redirect_domain: https://social.telar.dev/auth
+  gateway: https://social.telar.dev
+  origin: https://social.telar.dev
+  web_domain: https://social.telar.dev
   websocket_server_url: https://red-gold-socket.herokuapp.com

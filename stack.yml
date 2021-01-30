@@ -7,18 +7,18 @@ functions:
     environment:
       app_name: Telar Social
       base_route: /actions
-      cookie_root_domain: .o6s.io
+      cookie_root_domain: .telar.dev
       db_type: mongo
-      external_domain: https://telarpress.o6s.io
-      external_redirect_domain: https://telarpress.o6s.io/auth
-      gateway: https://telarpress.o6s.io
+      external_domain: https://social.telar.dev
+      external_redirect_domain: https://social.telar.dev/auth
+      gateway: https://social.telar.dev
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: https://telarpress.o6s.io
+      origin: https://social.telar.dev
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
@@ -34,7 +34,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: https://telarpress.o6s.io
+      web_domain: https://social.telar.dev
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -65,19 +65,19 @@ functions:
     environment:
       app_name: Telar Social
       base_route: /admin
-      cookie_root_domain: .o6s.io
+      cookie_root_domain: .telar.dev
       db_type: mongo
       exec_timeout: "20"
-      external_domain: https://telarpress.o6s.io
-      external_redirect_domain: https://telarpress.o6s.io/auth
-      gateway: https://telarpress.o6s.io
+      external_domain: https://social.telar.dev
+      external_redirect_domain: https://social.telar.dev/auth
+      gateway: https://social.telar.dev
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: https://telarpress.o6s.io
+      origin: https://social.telar.dev
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
@@ -93,7 +93,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: https://telarpress.o6s.io
+      web_domain: https://social.telar.dev
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -126,11 +126,11 @@ functions:
       base_route: /auth
       client_id: 7a9cbbf3e0bce602784f
       client_secret: ""
-      cookie_root_domain: .o6s.io
+      cookie_root_domain: .telar.dev
       db_type: mongo
-      external_domain: https://telarpress.o6s.io
-      external_redirect_domain: https://telarpress.o6s.io/auth
-      gateway: https://telarpress.o6s.io
+      external_domain: https://social.telar.dev
+      external_redirect_domain: https://social.telar.dev/auth
+      gateway: https://social.telar.dev
       github_app_id: "12345"
       header_cookie_name: he
       mongo_database: test
@@ -142,7 +142,7 @@ functions:
       oauth_telar_base_url: ""
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: https://telarpress.o6s.io
+      origin: https://social.telar.dev
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
@@ -160,7 +160,7 @@ functions:
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
       verify_type: emv
-      web_domain: https://telarpress.o6s.io
+      web_domain: https://social.telar.dev
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -191,18 +191,18 @@ functions:
     environment:
       app_name: Telar Social
       base_route: /notifications
-      cookie_root_domain: .o6s.io
+      cookie_root_domain: .telar.dev
       db_type: mongo
-      external_domain: https://telarpress.o6s.io
-      external_redirect_domain: https://telarpress.o6s.io/auth
-      gateway: https://telarpress.o6s.io
+      external_domain: https://social.telar.dev
+      external_redirect_domain: https://social.telar.dev/auth
+      gateway: https://social.telar.dev
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: https://telarpress.o6s.io
+      origin: https://social.telar.dev
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
@@ -218,7 +218,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: https://telarpress.o6s.io
+      web_domain: https://social.telar.dev
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -249,18 +249,18 @@ functions:
     environment:
       app_name: Telar Social
       base_route: /profile
-      cookie_root_domain: .o6s.io
+      cookie_root_domain: .telar.dev
       db_type: mongo
-      external_domain: https://telarpress.o6s.io
-      external_redirect_domain: https://telarpress.o6s.io/auth
-      gateway: https://telarpress.o6s.io
+      external_domain: https://social.telar.dev
+      external_redirect_domain: https://social.telar.dev/auth
+      gateway: https://social.telar.dev
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: https://telarpress.o6s.io
+      origin: https://social.telar.dev
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
@@ -276,7 +276,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: https://telarpress.o6s.io
+      web_domain: https://social.telar.dev
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -307,18 +307,18 @@ functions:
     environment:
       app_name: Telar Social
       base_route: /setting
-      cookie_root_domain: .o6s.io
+      cookie_root_domain: .telar.dev
       db_type: mongo
-      external_domain: https://telarpress.o6s.io
-      external_redirect_domain: https://telarpress.o6s.io/auth
-      gateway: https://telarpress.o6s.io
+      external_domain: https://social.telar.dev
+      external_redirect_domain: https://social.telar.dev/auth
+      gateway: https://social.telar.dev
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: https://telarpress.o6s.io
+      origin: https://social.telar.dev
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
@@ -334,7 +334,7 @@ functions:
       ref_email_pass_path: /var/openfaas/secrets/ref-email-pass
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
-      web_domain: https://telarpress.o6s.io
+      web_domain: https://social.telar.dev
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
@@ -366,19 +366,19 @@ functions:
       app_name: Telar Social
       base_route: /storage
       bucket_name: resume-web-app.appspot.com
-      cookie_root_domain: .o6s.io
+      cookie_root_domain: .telar.dev
       db_type: mongo
       exec_timeout: "20"
-      external_domain: https://telarpress.o6s.io
-      external_redirect_domain: https://telarpress.o6s.io/auth
-      gateway: https://telarpress.o6s.io
+      external_domain: https://social.telar.dev
+      external_redirect_domain: https://social.telar.dev/auth
+      gateway: https://social.telar.dev
       header_cookie_name: he
       mongo_database: test
       mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
-      origin: https://telarpress.o6s.io
+      origin: https://social.telar.dev
       payload_cookie_name: pa
       phone_auth_id_path: /var/openfaas/secrets/phone-auth-id
       phone_auth_token_path: /var/openfaas/secrets/phone-auth-token
@@ -395,7 +395,7 @@ functions:
       signature_cookie_name: si
       smtp_email: smtp.gmail.com
       storage_secret_path: /var/openfaas/secrets/serviceAccountKey.json
-      web_domain: https://telarpress.o6s.io
+      web_domain: https://social.telar.dev
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
       write_timeout: 10s
