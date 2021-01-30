@@ -57,7 +57,7 @@ func (gh *GitHub) GetProfile(accessToken string) (*Profile, error) {
 	profile.Avatar = githubProfile.Avatar
 	profile.CreatedAt = githubProfile.CreatedAt
 	profile.Login = githubProfile.Login
-	profile.ID = string(githubProfile.ID)
+	profile.ID = fmt.Sprint(githubProfile.ID)
 
 	if profile.Email == "" {
 		email, emailErr := gh.GetGithubEmail(accessToken)
