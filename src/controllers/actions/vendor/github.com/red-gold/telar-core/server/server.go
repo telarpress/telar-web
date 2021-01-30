@@ -340,7 +340,7 @@ func validateRequest(req *Request) (err error) {
 
 	xCloudSignature := req.Header.Get(X_Cloud_Signature)
 
-	fmt.Printf("\nxCloudSignature: %s\n", xCloudSignature)
+	fmt.Printf("\nxCloudSignature: %s\n", xCloudSignature, " payload_secret ", payloadSecret)
 	err = hmac.Validate(req.Body, xCloudSignature, payloadSecret)
 
 	if err != nil {
