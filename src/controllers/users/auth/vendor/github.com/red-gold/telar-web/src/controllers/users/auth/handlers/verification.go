@@ -231,7 +231,7 @@ func VerifySignupHandle(db interface{}) func(http.ResponseWriter, *http.Request,
 		webURL := utils.GetPrettyURLf("/web")
 		http.Redirect(w, r, webURL, http.StatusTemporaryRedirect)
 		return handler.Response{
-			StatusCode: StatusCode: http.StatusTemporaryRedirect,
+			StatusCode: http.StatusTemporaryRedirect,
 		}, nil
 	}
 }
