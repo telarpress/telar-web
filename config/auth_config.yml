@@ -10,4 +10,6 @@ environment:
   report_status: "true"
   verify_type: emv
   write_debug: "true"
-  exec_timeout: "15s"
+  write_timeout: 20s
+  read_timeout: 20s
+  exec_timeout: 20s
