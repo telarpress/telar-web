@@ -10,3 +10,4 @@ environment:
   report_status: "true"
   verify_type: emv
   write_debug: "true"
+  exec_timeout: "15s"

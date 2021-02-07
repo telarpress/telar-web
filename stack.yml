@@ -163,6 +163,7 @@ functions:
       web_domain: https://telarpress.cloud.telar.dev
       websocket_server_url: https://red-gold-socket.herokuapp.com
       write_debug: "true"
+      exec_timeout: "15s"
       write_timeout: 10s
     secrets:
     - secrets
