@@ -7,3 +7,6 @@ Telar web framework including, authentication, notifications, admin, actions and
 
 
 <br>⚠️ ***DO NOT USE IN ANY PRODUCTION ENVIRONMENT!!!***
+
+
+[Demo](https://telarpress.cloud.telar.dev/web)
