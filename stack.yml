@@ -14,7 +14,7 @@ functions:
       gateway: https://telarpress.cloud.telar.dev
       header_cookie_name: he
       mongo_database: test
-      mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
+      mongo_host: mongodb+srv://social:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
@@ -73,7 +73,7 @@ functions:
       gateway: https://telarpress.cloud.telar.dev
       header_cookie_name: he
       mongo_database: test
-      mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
+      mongo_host: mongodb+srv://social:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
@@ -134,7 +134,7 @@ functions:
       github_app_id: "12345"
       header_cookie_name: he
       mongo_database: test
-      mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
+      mongo_host: mongodb+srv://social:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       oauth_client_secret_path: /var/openfaas/secrets/ts-client-secret
       oauth_provider: github
@@ -199,7 +199,7 @@ functions:
       gateway: https://telarpress.cloud.telar.dev
       header_cookie_name: he
       mongo_database: test
-      mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
+      mongo_host: mongodb+srv://social:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
@@ -257,7 +257,7 @@ functions:
       gateway: https://telarpress.cloud.telar.dev
       header_cookie_name: he
       mongo_database: test
-      mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
+      mongo_host: mongodb+srv://social:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
@@ -315,7 +315,7 @@ functions:
       gateway: https://telarpress.cloud.telar.dev
       header_cookie_name: he
       mongo_database: test
-      mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
+      mongo_host: mongodb+srv://social:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold
@@ -375,7 +375,7 @@ functions:
       gateway: https://telarpress.cloud.telar.dev
       header_cookie_name: he
       mongo_database: test
-      mongo_host: mongodb+srv://telar:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
+      mongo_host: mongodb+srv://social:%s@cluster0.l6ojz.mongodb.net/test?retryWrites=true&w=majority
       mongo_pwd_path: /var/openfaas/secrets/mongo-pwd
       org_avatar: https://avatars3.githubusercontent.com/u/43268620
       org_name: Red Gold

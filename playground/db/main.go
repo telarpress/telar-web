@@ -18,7 +18,7 @@ func delaySecond(n time.Duration) {
 
 const uri = "mongodb://uyca00tvvj6liagozmao:PhLr52XMWONFDDcbEH26@bbnjlclnm5piolw-mongodb.services.clever-cloud.com:27017/bbnjlclnm5piolw"
 
-// const uri = "mongodb+srv://telar_user:pass@cluster0-l6ojz.mongodb.net/test?retryWrites=true&w=majority"
+// const uri = "mongodb+srv://social_user:pass@cluster0-l6ojz.mongodb.net/test?retryWrites=true&w=majority"
 
 type UserProfile struct {
 	ObjectId       uuid.UUID `json:"objectId" bson:"objectId"`
